@@ -1,0 +1,294 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "==== 경진대회 ====",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "==== 배치별 수집/적재 ====",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "배치 time",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/batch.py",
+            "args": [
+                "time"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "배치 day",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/batch.py",
+            "args": [
+                "day"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "배치 week",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/batch.py",
+            "args": [
+                "week"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "배치 month",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/batch.py",
+            "args": [
+                "month"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "==== 테이블별 수집/적재 ====",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 stock",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/StockDB.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 company_fs",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/company_fs.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 news",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/news.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10001",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10001.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10027",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10027.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10030",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10030.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10033",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10033.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10081",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10081.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10082",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10082.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10083",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10083.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt10086",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt10086.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt20002",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt20002.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt20003",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt20003.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt20006",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt20006.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt20007",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt20007.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt20008",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt20008.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "수집/적재 opt90002",
+            "type": "python",
+            "request": "launch",
+            "env": {
+                "DATALAKE_COLLECTOR": "${workspaceFolder}"
+            },
+            "program": "${workspaceFolder}/openapi/opt90002.py",
+            "args": [
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
