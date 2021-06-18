@@ -414,6 +414,44 @@ CREATE TABLE portfolio_year (
 	fscore_understocks varchar(16) NULL
 );
 
+create view strategy_rank as
+select AA.stocks_num,AA.stock,o.종목명,AA.cnt, o.시가총액 
+from (
+select C.stocks_num, C.stock, count(C.stock) as cnt from
+(
+   select
+      A.stocks_num,
+      A.year,
+      case
+         when B.idx = 1 then A.understocks
+         when B.idx = 2 then A.magic
+         when B.idx = 3 then A.momentum
+         when B.idx = 4 then A.fscore
+         when B.idx = 5 then A.fscore_understocks
+      end as stock
+   from
+   (
+      select stocks_num, year, understocks, magic, momentum, fscore, fscore_understocks
+      from portfolio_year 
+      where year = '2021'
+   ) as A
+   cross join (
+      select 1 as idx
+         union all select 2 as idx
+         union all select 3 as idx
+         union all select 4 as idx
+         union all select 5 as idx
+   ) as B
+) as C
+group by C.stocks_num, C.stock
+order by C.stocks_num, C.count desc
+) as AA
+left join 
+	opt10001 as o 
+	on AA.stock = o.종목코드
+where AA.cnt >1
+order by stocks_num, cnt desc,시가총액 desc;
+
 CREATE TABLE stock_prediction (
 	stock_code varchar(50) NULL,
 	stock_name text NULL,
