@@ -392,6 +392,67 @@ CREATE TABLE IF NOT EXISTS "theme" (
 	PRIMARY KEY ("테마코드")
 );
 
+CREATE TABLE portfolio (
+	stock_date date NULL,
+	stocks_num int4 NULL,
+	magic float8 NULL,
+	momentum float8 NULL,
+	fscore float8 NULL,
+	fscore_understocks float8 NULL,
+	understocks float8 NULL,
+	"date" varchar(10) NULL
+);
+
+CREATE TABLE portfolio_year (
+	stocks_num int4 NULL,
+	"rank" int4 NULL,
+	"year" varchar(16) NULL,
+	understocks varchar(16) NULL,
+	magic varchar(16) NULL,
+	momentum varchar(16) NULL,
+	fscore varchar(16) NULL,
+	fscore_understocks varchar(16) NULL
+);
+
+CREATE TABLE stock_prediction (
+	stock_code varchar(50) NULL,
+	stock_name text NULL,
+	batch_date date NULL,
+	predict_date date NULL,
+	predict_value int4 NULL,
+	trend varchar(10) NULL
+);
+
+CREATE TABLE value_analysis_results (
+	기준년도 text NULL,
+	종목코드 text NULL,
+	종목명 text NULL,
+	스코어 int4 NULL,
+	시가총액 int4 NULL,
+	"ROE" float8 NULL,
+	"EPS증가율" float8 NULL,
+	"PEG" float8 NULL,
+	"PER" float8 NULL,
+	"PSR" float8 NULL,
+	"3년평균순이익률" float8 NULL,
+	업종명 text NULL,
+	업종코드 varchar NULL
+);
+
+CREATE TABLE public.value_analysis_results_graph (
+	기준년도 text NULL,
+	종목코드 text NULL,
+	종목명 text NULL,
+	시가총액 int4 NULL,
+	"ROE" float8 NULL,
+	"EPS증가율" float8 NULL,
+	"PEG" float8 NULL,
+	"PER" float8 NULL,
+	"PSR" float8 NULL,
+	"3년평균순이익률" float8 NULL
+);
+
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
