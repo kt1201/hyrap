@@ -76,7 +76,8 @@ def collector(stock, trcode, company, cnt, total_cnt, skip):
             df['기준년도'] = df.index
             df['종목코드'] = company['code']
 
-            df.replace('NaN', '', inplace=True)  # 'NaN' 값  ''으로 대체
+            df.replace('', psycopg2.extensions.AsIs('NULL'), inplace=True)  # '' 값  NULL 값으로 대체
+            df.replace('NaN', psycopg2.extensions.AsIs('NULL'), inplace=True)  # 'NaN' 값  NULL 값으로 대체
             # print(df)
 
             df.to_sql(trcode, engine, if_exists='append', index=False, chunksize=1000)

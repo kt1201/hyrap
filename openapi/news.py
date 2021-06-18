@@ -14,8 +14,10 @@ import Stock
 client_id = "y24f2QZnJc9s5UEEzy6R"
 client_secret = "ke3yiKGjdH"
 
+# 과거 12시간 안에 올라온 뉴스만 수집하기 위해 시간 지정
 past_batch_start = datetime.now() - timedelta(hours=12)
 
+# 데이터 수집, 재시도 5회코드 포함
 def get_response(request):
     try:
         response = urllib.request.urlopen(request)
@@ -53,16 +55,21 @@ def main(stock, trcode):
             if(rescode==200):
                 response_body = json.loads(response.read())
                 items = response_body["items"]
+                # 데이터가 존재할 때
                 if (len(items) > 0):
                     first_row_pubDate = datetime.strptime(str(parse(items[0]["pubDate"]).date()) + " " + str(parse(items[0]["pubDate"]).time()), "%Y-%m-%d %H:%M:%S")
                     if (first_row_pubDate > past_batch_start):
                         for item in items:
+                            # 날짜 형식 custom
                             custom_pubDate = str(parse(item["pubDate"]).date()) + " " + str(parse(item["pubDate"]).time())
                             pubDate = datetime.strptime(custom_pubDate, "%Y-%m-%d %H:%M:%S")
+                            # 과거 12시간 안의 뉴스들만 수집
                             if (pubDate > past_batch_start):
+                                # 적재 여부 조회
                                 dup_query = "SELECT * FROM news WHERE link = %s"
                                 dup_binds = [item["originallink"]]
                                 result = stock.StockDB.execute(dup_query, dup_binds)[0]
+                                # 적재 데이터 없을 때만 수집
                                 if (len(result) == 0):
                                     binds = [company["code"], item["title"], item["originallink"], custom_pubDate]
                                     exitcode = stock.StockDB.insert("news", binds)

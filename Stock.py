@@ -3,7 +3,7 @@
 
 from pykiwoom.kiwoom import *
 from datetime import datetime, timedelta
-from sqlalchemy import create_engine, types
+from sqlalchemy import create_engine
 import pandas as pd
 import time
 

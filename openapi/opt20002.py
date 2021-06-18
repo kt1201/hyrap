@@ -1,6 +1,7 @@
 from pykiwoom.kiwoom import *
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, types
+import psycopg2
 import pandas as pd
 import numpy as np
 import time
@@ -31,6 +32,8 @@ def collector(stock, trcode, sector, cnt, total_cnt, skip):
             if (df.loc[0]['종목코드'] != ''):
                 df['업종코드'] = sector['code']
                 df['업종명'] = sector['name']
+                df.replace('', psycopg2.extensions.AsIs('NULL'), inplace=True)  # '' 값  NULL 값으로 대체
+                df.replace('NaN', psycopg2.extensions.AsIs('NULL'), inplace=True)  # 'NaN' 값  NULL 값으로 대체
                 # print(df)
                 df.to_sql(trcode, engine, if_exists='append', index=False, chunksize=1000)
                 # df.to_csv("./csv/" + trcode + ".csv", sep=',', index=False, header=False, chunksize=50)

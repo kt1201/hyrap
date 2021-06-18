@@ -1,6 +1,7 @@
 from pykiwoom.kiwoom import *
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, types
+import psycopg2
 import pandas as pd
 import numpy as np
 import time
@@ -37,6 +38,8 @@ def collector(stock, trcode, sector, std_date, cnt, total_cnt, skip, column_list
             end_date = df['일자'][len(df)-1]
             df.drop(columns=["대업종구분", "소업종구분", "종목정보", "전일종가"], inplace=True)
             df['업종코드'] = sector["code"]
+            df.replace('', psycopg2.extensions.AsIs('NULL'), inplace=True)  # '' 값  NULL 값으로 대체
+            df.replace('NaN', psycopg2.extensions.AsIs('NULL'), inplace=True)  # 'NaN' 값  NULL 값으로 대체
             # 데이터 적재
             for i in range(len(df)):
                 dup_query = "SELECT * FROM {} WHERE 업종코드 = %s AND 일자 = %s".format(trcode)
