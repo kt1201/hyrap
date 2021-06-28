@@ -1,3 +1,6 @@
 ## 폴더 무시
 sql/public/
 log/
+analysis/model/
+__pycache__/
+openapi/__pycache__/

@@ -108,4 +108,4 @@ if __name__ == "__main__":
     main(stock, "news")
     elapsed_time = stock.convert_seconds_to_time(time.time() - start)
     print("실행시간 :", elapsed_time)  # 현재시각 - 시작시간 = 실행 시간
-    print("{} 배치 종료".format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))    
+    print("{} 배치 종료".format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
